@@ -3,21 +3,23 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	
-	<title>Wheel of Hangman</title>
+	<title>Hangman Project</title>
 </head>
 <body>
-	
-			<h1>Hangman!</h1>
+		<div id="container">
+			<h1>Word Guess!</h1>
+			<h2>Begin typing to guess the color.</h2>
 
 			<p>
-				<font size="+3"><span id="answer"></span></font>
+				<font><span id="answer"></span></font>
 			</p>
 			<p>Lives: <span id="counter"></span></p>
-			<p id="wrongGuesses"></p>
+			<p>Wrong Guesses: <span id="wrongGuesses"></span></p>
 			<p>Wins: <span id="wins"></span></p>
 			<p>Losses: <span id="losses"></span></p>
-	<button onclick="start()">Reset Game</button>
+	<!-- <button onclick="start()">Reset Game</button> -->
 
+	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="index.js"></script>
 </body>
