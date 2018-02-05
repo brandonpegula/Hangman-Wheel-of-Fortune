@@ -1,16 +1,15 @@
+body {
+  background-color: #4cbb17; }
+
 #container {
-  width: 50%;
+  width: 70%;
   border-radius: 5px;
   padding: 10px;
-  background-color: blue;
+  background-color: white;
   margin: 10% auto;
   text-align: center; }
 
-#letters {
-  color: white;
-  background-color: darkgrey;
-  border-radius: 5px;
-  padding: 5px;
-  cursor: pointer; }
+#answer {
+  font-size: 25px; }
 
 /*# sourceMappingURL=main.css.map */

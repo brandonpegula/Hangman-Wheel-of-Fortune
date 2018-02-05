@@ -7,7 +7,7 @@ var counter;		//counts correct letters
 var losses = 0;
 var wins = 0;
 
-console.log(letters);
+// console.log(wrongLetters);
 
 document.getElementById("losses").textContent = losses;
 document.getElementById("wins").textContent = wins;
@@ -54,7 +54,7 @@ function checkLetter() {
 			//when counter reaches 0 it's Game Over
 			//+1 to the losses if 10 words are missed
 			
-			if (counter > 0 && letters.join(" ") == word) {
+			if (counter > 0 && letters.join(" ") === word) {
 				document.getElementById("wins").textContent = wins + 1;
 				// console.log(letters);
 				confirm("YOU WIN! Play Again?"); {
@@ -85,86 +85,6 @@ function checkLetter() {
 
 start();
 checkLetter();
-
-
-
-
-// var wordBank = ['red', 'blue', 'green', 'yellow'];
-// var wins = 0;
-// var loss = 0;
-// var wrongLetter = [];
-// var guessesLeft = 10;
-// var underScores = [];
-// var userGuesses = [];
-// var randomWord;
-// var winCounter = 0;
-
-// // function
-
-// function startGame(){
-	
-// 	randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-// 	console.log(randomWord.split(" "))
-
-// 	for(var i = 0; i<randomWord.length; i++){
-// 		underScores.push('_');
-
-// 	}
-// 	document.getElementById('word-blanks').textContent = underScores.join(" ");
-
-// 	// reset
-// 	// wrongLetter = [];
-// 	// guessesLeft = 10;
-
-// 	//HTML
-// 	// document.getElementById('guesses-left').textContent = guessesLeft;
-
-// }
-// function winLose(){
-// 	if(winCounter === randomWord.length){
-// 		alert('winner!');
-// 		// startGame();
-// 	}
-// 	else if(guessesLeft === 0){
-// 		alert('sorry you lost!');
-// 		// startGame();
-// 	}
-// }
-
-// //user guesses
-// document.onkeyup = function(event){
-
-// 	userGuesses = event.key;
-// 	console.log(userGuesses)
-// 	// checks if letter is within word
-// 	if(randomWord.indexOf(userGuesses) > -1){
-// 		console.log('yes');
-		
-// 		for(var i=0; i<randomWord.length; i++){
-// 			if(randomWord[i] === userGuesses){
-// 				underScores[i] = userGuesses;
-// 				console.log(underScores);
-// 				document.getElementById('word-blanks').textContent = underScores.join(" ");
-// 				winCounter++;
-// 				winLose();
-
-// 			}
-
-// 		}
-
-// 	}
-// 	else{
-// 		wrongLetter.push(userGuesses);
-// 		guessesLeft--;
-// 		document.getElementById('guesses-left').textContent = guessesLeft;
-// 		document.getElementById('wrong-guesses').textContent = wrongLetter.join(", ");
-// 		winLose();
-// 			}
-
-// }
-// // main
-
-// startGame();
 
 
 
