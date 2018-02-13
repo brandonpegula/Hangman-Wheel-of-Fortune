@@ -27,6 +27,8 @@ function start() {
     document.getElementById("answer").innerHTML = letters.join(" ");
     console.log(word);
 
+
+
 }
 
 
@@ -46,7 +48,7 @@ function checkLetter() {
 		if (found) return;
 		if (wrongLetters.indexOf(guess) < 0) {
 			wrongLetters.push(guess);
-			document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
+			document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(", ");
 			//every wrong guess subtracts one from the counter
 			counter--;
 			console.log(counter);
@@ -54,7 +56,7 @@ function checkLetter() {
 			//when counter reaches 0 it's Game Over
 			//+1 to the losses if 10 words are missed
 			
-			if (counter > 0 && letters.join(" ") === word) {
+			if (counter > 0 && letters.join("") === word) {
 				document.getElementById("wins").textContent = wins + 1;
 				// console.log(letters);
 				confirm("YOU WIN! Play Again?"); {
@@ -70,7 +72,7 @@ function checkLetter() {
 			if (counter === 0) {
 				document.getElementById("losses").textContent = losses + 1;
 				// console.log(losses);
-				confirm("YOU LOOSE... play again?"); {
+				confirm("YOU LOSE... Play Again?"); {
 					losses++;
 					counter = 10;
 					letters = [];
@@ -83,8 +85,11 @@ function checkLetter() {
 }
 
 
+
 start();
 checkLetter();
+
+
 
 
 
