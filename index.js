@@ -12,7 +12,7 @@ var wins = 0;
 document.getElementById("losses").textContent = losses;
 document.getElementById("wins").textContent = wins;
 
-var wordList = ['red', 'blue', 'green', 'yellow', 'orange', 'black', 'purple', 'salmon']; 
+var wordList = ['red', 'blue', 'green', 'yellow', 'orange', 'black', 'purple', 'salmon', 'azure', 'brown', 'gold', 'silver', 'bronze', 'gray', 'maroon', 'olive']; 
 
 
 //randomly chooses a word from the array and replaces letters with underscores
@@ -28,14 +28,45 @@ function start() {
     console.log(word);
 
 
-
 }
 
 
 //checks if letter is in the word or not
 function checkLetter() {
-	document.onkeyup = function(event) {
-		guess = event.key.toLowerCase();
+	document.onkeyup = function(event){
+	//Blocks certain keys from registering misses.
+	if (window.event.keyCode == 91) return false;
+	
+	guess = event.key.toLowerCase();
+
+	winOrLose();
+	spacebar();
+	}
+}
+
+//verifies and submits the word once only the spacebar is pushed.
+function spacebar(){
+
+	if (window.event.keyCode == 32 && counter > 0 && letters.join("") === word) {
+				document.getElementById("wins").textContent = wins + 1;
+				// console.log(letters);
+				confirm("YOU WIN! Play Again?"); {
+					wins++;
+					counter = 10;
+					letters = [];
+					wrongLetters = [];
+					start();
+				}
+				
+			}
+}
+
+
+//removed the if statment from the checkLetter function to seperate from scope.
+function winOrLose() {
+
+	if (window.event.keyCode == 13) return false;
+	
 		var found = false;
 		for (i = 0; i < word.length; i++) {
 			if (guess === word[i]) {
@@ -44,6 +75,7 @@ function checkLetter() {
 				found = true;
 			} 
 		}
+		
 		//wrong letters go into the wrongLetters array and are displayed
 		if (found) return;
 		if (wrongLetters.indexOf(guess) < 0) {
@@ -56,18 +88,7 @@ function checkLetter() {
 			//when counter reaches 0 it's Game Over
 			//+1 to the losses if 10 words are missed
 			
-			if (counter > 0 && letters.join("") === word) {
-				document.getElementById("wins").textContent = wins + 1;
-				// console.log(letters);
-				confirm("YOU WIN! Play Again?"); {
-					wins++;
-					counter = 10;
-					letters = [];
-					wrongLetters = [];
-					start();
-				}
-				
-			}
+			
 
 			if (counter === 0) {
 				document.getElementById("losses").textContent = losses + 1;
@@ -81,13 +102,17 @@ function checkLetter() {
 				}
 			}
 		}
-	}
+
 }
+
+
+
 
 
 
 start();
 checkLetter();
+// winOrLose();
 
 
 
